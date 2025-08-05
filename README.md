@@ -64,7 +64,7 @@ git clone https://github.com/TanmayN22/Quizzler.git
 
 ## 7. Creators & Credits
 
-- Piyush Pradeep Das  
+- Piyush Das  
 - Kaustubh Gondkar  
 - Tanmay Nayak  
  
