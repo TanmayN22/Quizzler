@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizller/controllers/auth_controller.dart';
 import 'package:quizller/views/analytics_page.dart';
+import 'package:quizller/views/courses_screen.dart';
 import 'package:quizller/views/home_page.dart';
 import 'package:quizller/views/test_page.dart';
 
@@ -22,7 +23,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const Center(child: Text('Courses Screen')),
+    const CoursesScreen(),
     const TestPage(),
     AnalyticsPage(subject: '', score: 90),
   ];
