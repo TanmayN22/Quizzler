@@ -69,7 +69,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(    
       appBar: AppBar(
         title: Text('Analysis: ${widget.subject}'),
         backgroundColor: Colors.purple.shade700,
