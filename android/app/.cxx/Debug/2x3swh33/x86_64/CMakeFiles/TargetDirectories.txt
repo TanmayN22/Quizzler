@@ -1,0 +1,2 @@
+/Users/tanmaynayak/Flutter_apps/Quizzler/quizller/android/app/.cxx/Debug/2x3swh33/x86_64/CMakeFiles/edit_cache.dir
+/Users/tanmaynayak/Flutter_apps/Quizzler/quizller/android/app/.cxx/Debug/2x3swh33/x86_64/CMakeFiles/rebuild_cache.dir
