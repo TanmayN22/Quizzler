@@ -11,7 +11,7 @@ class AppTheme {
       primary: AppColors.primary,
       primaryContainer: AppColors.primaryVariant,
       secondary: AppColors.secondary,
-      secondaryContainer: AppColors.secondaryVariant, 
+      secondaryContainer: AppColors.secondaryVariant,
       surface: AppColors.surface,
       error: AppColors.error,
       onPrimary: AppColors.onPrimary,
@@ -30,7 +30,7 @@ class AppTheme {
         foregroundColor: AppColors.onPrimary, // Text color
         backgroundColor: AppColors.primary, // Button background color
         minimumSize: const Size(120, 48),
-        textStyle: AppTypography.textTheme.bodyLarge, 
+        textStyle: AppTypography.textTheme.bodyLarge,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),

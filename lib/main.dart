@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:quizller/controllers/auth/auth_controller.dart';
 import 'package:quizller/routes/app_pages.dart';
+import 'package:quizller/theme/app_theme.dart';
 import 'controllers/auth/firebase_options.dart';
 
 void main() async {
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
+      theme: AppTheme.lightTheme,
       initialRoute: Routes.SPLASHSCREEN,
     );
   }

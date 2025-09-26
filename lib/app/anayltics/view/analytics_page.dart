@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizller/widgets/navbar.dart';
 
 class AnalyticsPage extends StatefulWidget {
   final String subject;
@@ -29,21 +30,7 @@ class _AnalyticsPageState extends State<AnalyticsPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Analysis: ${widget.subject}'),
-        backgroundColor: Colors.purple.shade700,
-        foregroundColor: Colors.white,
-        elevation: 2,
-        bottom: TabBar(
-          controller: _tabController,
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white70,
-          tabs: const [
-            Tab(text: 'Overview'),
-          ],
-        ),
-      ),
+      appBar: Navbar(title: 'Analytics'),
       body: TabBarView(
         controller: _tabController,
         children: [],

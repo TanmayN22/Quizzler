@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizller/widgets/navbar.dart';
 
 class CoursesScreen extends StatefulWidget {
   const CoursesScreen({super.key});
@@ -12,10 +13,6 @@ class _CoursesScreenState extends State<CoursesScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
-      appBar: AppBar(
-        title: const Text('Courses'),
-      ),
-    );
+        backgroundColor: Colors.grey[50], appBar: Navbar(title: 'Courses'));
   }
 }
