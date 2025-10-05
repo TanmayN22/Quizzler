@@ -45,6 +45,7 @@ class _SigninScreenState extends State<SigninScreen> {
           passwordcontroller.text.trim(),
         );
         await authController.updateUsername(usernameController.text.trim());
+        await authController.saveUsernameToFirestore(usernameController.text.trim());
         // pop loading screen
         if (context.mounted) Navigator.pop(context);
       } catch (e) {

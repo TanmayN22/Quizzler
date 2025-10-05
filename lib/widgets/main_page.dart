@@ -22,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   }
 
   final List<Widget> _pages = [
-    const HomePage(),
+    HomePage(),
     const CoursesScreen(),
     const TestPage(),
     AnalyticsPage(subject: '', score: 90),
@@ -82,7 +82,9 @@ class _MainPageState extends State<MainPage> {
             duration: const Duration(milliseconds: 200),
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: isSelected ? Colors.deepPurple.withOpacity(0.1) : Colors.transparent,
+              color: isSelected
+                  ? Colors.deepPurple.withOpacity(0.1)
+                  : Colors.transparent,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Icon(

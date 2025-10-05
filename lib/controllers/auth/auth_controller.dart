@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -18,11 +19,13 @@ class AuthController extends GetxController {
   User? get user => firebaseUser.value;
 
   Future<void> login(String email, String password) async {
-    await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+    await firebaseAuth.signInWithEmailAndPassword(
+        email: email, password: password);
   }
 
   Future<void> createAccount(String email, String password) async {
-    await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+    await firebaseAuth.createUserWithEmailAndPassword(
+        email: email, password: password);
   }
 
   Future<void> logout() async {
@@ -38,7 +41,8 @@ class AuthController extends GetxController {
   }
 
   Future<void> deleteAccount(String email, String password) async {
-    AuthCredential credential = EmailAuthProvider.credential(email: email, password: password);
+    AuthCredential credential =
+        EmailAuthProvider.credential(email: email, password: password);
     await firebaseAuth.currentUser!.reauthenticateWithCredential(credential);
     await firebaseAuth.currentUser!.delete();
   }
@@ -48,9 +52,19 @@ class AuthController extends GetxController {
     required String newPassword,
     required String email,
   }) async {
-    AuthCredential credential = EmailAuthProvider.credential(email: email, password: currentPassword);
+    AuthCredential credential =
+        EmailAuthProvider.credential(email: email, password: currentPassword);
     await firebaseAuth.currentUser!.reauthenticateWithCredential(credential);
     await firebaseAuth.currentUser!.updatePassword(newPassword);
   }
-  
+
+  Future<void> saveUsernameToFirestore(String username) async {
+    final uid = firebaseAuth.currentUser?.uid;
+    if (uid != null) {
+      await FirebaseFirestore.instance.collection('users').doc(uid).set({
+        'username': username,
+      }, SetOptions(merge: true)
+      );
+    }
+  }
 }
