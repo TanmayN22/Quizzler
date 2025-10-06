@@ -10,13 +10,15 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final authController = Get.find<AuthController>();
+    final colorScheme = Theme.of(context).colorScheme;
+
     return AppBar(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: colorScheme.surface,
       elevation: 1.0,
       title: Text(
         title,
         style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: colorScheme.primary,
             ),
       ),
       actions: [
@@ -25,7 +27,7 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
           icon: Icon(
             Icons.circle,
             size: 40,
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: colorScheme.primary,
           ),
         ),
       ],

@@ -30,13 +30,16 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withOpacity(isDark ? 0.3 : 0.1),
               blurRadius: 10,
               offset: const Offset(0, -5),
             ),
@@ -50,14 +53,14 @@ class _MainPageState extends State<MainPage> {
           child: BottomAppBar(
             height: 70,
             padding: EdgeInsets.zero,
-            color: Colors.white,
+            color: colorScheme.surface,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildNavItem(0, Icons.home, 'Home'),
-                _buildNavItem(1, Icons.school, 'Courses'),
-                _buildNavItem(2, Icons.text_increase_sharp, 'Test'),
-                _buildNavItem(3, Icons.bar_chart, 'Analytics'),
+                _buildNavItem(context, 0, Icons.home, 'Home'),
+                _buildNavItem(context, 1, Icons.school, 'Courses'),
+                _buildNavItem(context, 2, Icons.text_increase_sharp, 'Test'),
+                _buildNavItem(context, 3, Icons.bar_chart, 'Analytics'),
               ],
             ),
           ),
@@ -66,8 +69,10 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget _buildNavItem(int index, IconData icon, String label) {
+  Widget _buildNavItem(
+      BuildContext context, int index, IconData icon, String label) {
     final isSelected = _currentIndex == index;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return InkWell(
       onTap: () {
@@ -83,13 +88,15 @@ class _MainPageState extends State<MainPage> {
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: isSelected
-                  ? Colors.deepPurple.withOpacity(0.1)
+                  ? colorScheme.primary.withOpacity(0.1)
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Icon(
               icon,
-              color: isSelected ? Colors.deepPurple : Colors.grey,
+              color: isSelected
+                  ? colorScheme.primary
+                  : colorScheme.onSurface.withOpacity(0.6),
               size: 24,
             ),
           ),
@@ -97,7 +104,9 @@ class _MainPageState extends State<MainPage> {
             label,
             style: TextStyle(
               fontSize: 12,
-              color: isSelected ? Colors.deepPurple : Colors.grey,
+              color: isSelected
+                  ? colorScheme.primary
+                  : colorScheme.onSurface.withOpacity(0.7),
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
