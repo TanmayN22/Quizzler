@@ -12,7 +12,6 @@ class _CoursesScreenState extends State<CoursesScreen>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey[50], appBar: Navbar(title: 'Courses'));
+    return Scaffold(appBar: Navbar(title: 'Courses'));
   }
 }

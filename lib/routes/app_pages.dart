@@ -1,6 +1,7 @@
 // pages routes
 
 import 'package:get/get.dart';
+import 'package:quizller/app/profile/view/profile_screen.dart';
 import 'package:quizller/controllers/auth/auth.dart';
 import 'package:quizller/controllers/auth/login_or_register.dart';
 import 'package:quizller/app/courses/view/courses_screen.dart';
@@ -17,5 +18,6 @@ class AppPages {
     GetPage(name: Routes.LOGINORSIGNIN, page: () => const LoginOrRegister()),
     GetPage(name: Routes.AUTHPAGE, page: () => const AuthPage()),
     GetPage(name: Routes.COURSES, page: () => const CoursesScreen()),
+    GetPage(name: Routes.PROFILE, page: () => const ProfileScreen())
   ];
 }

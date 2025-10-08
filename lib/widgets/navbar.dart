@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizller/controllers/auth/auth_controller.dart';
+import 'package:quizller/app/profile/view/profile_screen.dart';
+// import 'package:quizller/controllers/auth/auth_controller.dart';
+// import 'package:quizller/controllers/theme/theme_controller.dart';
 
 class Navbar extends StatelessWidget implements PreferredSizeWidget {
   const Navbar({super.key, required this.title});
@@ -9,11 +11,11 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authController = Get.find<AuthController>();
+    // final authController = Get.find<AuthController>();
     final colorScheme = Theme.of(context).colorScheme;
+    // final themeController = Get.find<ThemeController>();
 
     return AppBar(
-      backgroundColor: colorScheme.surface,
       elevation: 1.0,
       title: Text(
         title,
@@ -23,11 +25,17 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () => authController.logout(),
+          onPressed: () =>
+              // authController.logout(),
+              // themeController.toggleTheme(),
+              Get.to(ProfileScreen()),
           icon: Icon(
-            Icons.circle,
-            size: 40,
-            color: colorScheme.primary,
+            Icons.person,
+            // themeController.isDarkMode.value
+            // ? Icons.light_mode
+            //     : Icons.nights_stay,
+            size: 25,
+            color: colorScheme.onSurface,
           ),
         ),
       ],

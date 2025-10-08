@@ -12,7 +12,7 @@ class AppTheme {
     colorScheme: const ColorScheme(
       primary: AppColors.primary,
       primaryContainer: AppColors.primaryVariant,
-      secondary: AppColors.secondary,
+      secondary: Color.fromARGB(246, 246, 246, 246),
       secondaryContainer: AppColors.secondaryVariant,
       surface: AppColors.lightSurface,
       error: AppColors.error,
@@ -28,7 +28,7 @@ class AppTheme {
       displayColor: AppColors.onSurfaceLight,
     ),
     iconTheme: const IconThemeData(
-      color: AppColors.onSurfaceLight,
+      color: Color.fromARGB(246, 246, 246, 246),
       size: 24,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -50,7 +50,7 @@ class AppTheme {
     colorScheme: const ColorScheme(
       primary: AppColors.primary,
       primaryContainer: AppColors.primaryVariant,
-      secondary: AppColors.secondary,
+      secondary: Color.fromARGB(246, 246, 246, 246),
       secondaryContainer: AppColors.secondaryVariant,
       surface: AppColors.darkSurface,
       error: AppColors.error,
@@ -66,7 +66,7 @@ class AppTheme {
       displayColor: AppColors.onSurfaceDark,
     ),
     iconTheme: const IconThemeData(
-      color: AppColors.onSurfaceDark,
+      color: Color.fromARGB(255, 225, 225, 225),
       size: 24,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(

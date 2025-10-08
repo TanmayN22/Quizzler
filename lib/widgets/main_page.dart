@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     const CoursesScreen(),
     const TestPage(),
-    AnalyticsPage(subject: '', score: 90),
+    AnalyticsPage(),
   ];
 
   @override

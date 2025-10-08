@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:quizller/controllers/auth/auth_controller.dart';
+import 'package:quizller/controllers/theme/theme_controller.dart';
 import 'package:quizller/routes/app_pages.dart';
 import 'package:quizller/theme/app_theme.dart';
 import 'controllers/auth/firebase_options.dart';
@@ -18,6 +19,7 @@ void main() async {
 
   // Inject your AuthController AFTER Firebase is ready
   Get.put(AuthController());
+  Get.put(ThemeController());
 
   runApp(const MyApp());
 }
@@ -31,6 +33,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
       theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
       initialRoute: Routes.SPLASHSCREEN,
     );
   }

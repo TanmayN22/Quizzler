@@ -11,5 +11,6 @@ class Routes {
   static const LOGINORSIGNIN = '/log-or-sign-screen';
   static const AUTHPAGE = '/auth-screen';
   static const MAINPAGE = '/main-page';
-  static const COURSES = '/courses'; 
+  static const COURSES = '/courses';
+  static const PROFILE = '/profile-screen';
 }

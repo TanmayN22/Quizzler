@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizller/widgets/navbar.dart';
 
 class AnalyticsPage extends StatefulWidget {
-  final String subject;
-  final int score;
-
-  const AnalyticsPage({super.key, required this.subject, required this.score});
+  const AnalyticsPage({super.key});
 
   @override
   State<AnalyticsPage> createState() => _AnalyticsPageState();
