@@ -20,7 +20,7 @@ class CoursesSection extends StatelessWidget {
           ),
           SizedBox(height: AppSizes.p8),
           Text(
-            'Tech Core Subjects',
+            'Core Subjects',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           SizedBox(

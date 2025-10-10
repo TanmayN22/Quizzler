@@ -42,7 +42,7 @@ class _DailyStatContainerState extends State<DailyStatContainer> {
   }
 
   void _goToNextDay() {
-    // Preventing it from navigating to the future 
+    // Preventing it from navigating to the future
     if (_normalizeDate(_selectedDate)
         .isBefore(_normalizeDate(DateTime.now()))) {
       setState(() {
@@ -64,67 +64,67 @@ class _DailyStatContainerState extends State<DailyStatContainer> {
       return DateFormat('MMM d, yyyy').format(date);
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final isToday = _normalizeDate(_selectedDate) == _normalizeDate(DateTime.now());
-    final stats = _statsData[_normalizeDate(_selectedDate)] ?? DailyStats(tests: 0, lectures: 0, score: 0);
+    final isToday =
+        _normalizeDate(_selectedDate) == _normalizeDate(DateTime.now());
+    final stats = _statsData[_normalizeDate(_selectedDate)] ??
+        DailyStats(tests: 0, lectures: 0, score: 0);
     return Column(
+      children: [
+        Padding(
+          padding:
+              const EdgeInsets.only(left: AppSizes.p12, right: AppSizes.p12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: AppSizes.p16, right: AppSizes.p16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                        onPressed: _goToPreviousDay,
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.black,
-                        )),
-                    Text(
-                      _formatDateHeader(_selectedDate),
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                    Opacity(
-                      opacity: isToday ? 0.3 : 1.0,
-                      child: IconButton(
-                        onPressed: isToday ? null : _goToNextDay,
-                        icon: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              IconButton(
+                  onPressed: _goToPreviousDay,
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  )),
+              Text(
+                _formatDateHeader(_selectedDate),
+                style: Theme.of(context).textTheme.titleSmall,
               ),
-              Padding(
-                padding:
-                    EdgeInsets.only(left: AppSizes.p8.w, right: AppSizes.p8.w),
-                child: Container(
-                  width: Get.width,
-                  height: 120,
-                  decoration: BoxDecoration(
-                      color: colorScheme.secondary,
-                      border: Border.all(
-                          color: colorScheme.primary.withOpacity(0.3)),
-                      borderRadius: BorderRadius.circular(AppSizes.radiusMd)),
-                  child: IntrinsicHeight(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        statBox(context, 'Tests', '${stats.tests}'),
-                        statBox(context, 'Lectures', '${stats.lectures}'),
-                        statBox(context, 'Score', '${stats.score}')
-                      ],
-                    ),
+              Opacity(
+                opacity: isToday ? 0.3 : 1.0,
+                child: IconButton(
+                  onPressed: isToday ? null : _goToNextDay,
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.black,
                   ),
                 ),
-              )
+              ),
             ],
-          );
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: AppSizes.p12.w, right: AppSizes.p12.w),
+          child: Container(
+            width: Get.width,
+            height: 120,
+            decoration: BoxDecoration(
+                color: colorScheme.secondary,
+                border: Border.all(color: colorScheme.primary.withOpacity(0.3)),
+                borderRadius: BorderRadius.circular(AppSizes.radiusMd)),
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  statBox(context, 'Tests', '${stats.tests}'),
+                  statBox(context, 'Lectures', '${stats.lectures}'),
+                  statBox(context, 'Score', '${stats.score}')
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
+    );
   }
 }
