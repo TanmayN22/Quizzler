@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:quizller/controllers/auth/auth_controller.dart';
-import 'package:quizller/controllers/theme/theme_controller.dart';
-import 'package:quizller/routes/app_pages.dart';
-import 'package:quizller/theme/app_theme.dart';
-import 'controllers/auth/firebase_options.dart';
+import 'package:quizller/app/controllers/auth/auth_controller.dart';
+import 'package:quizller/app/routes/app_pages.dart';
+import 'package:quizller/app/core/theme/app_theme.dart';
+import 'package:quizller/app/controllers/themes/theme_controller.dart';
+import 'app/controllers/auth/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // only potrait mode 
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  // 🔥 Initialize Firebase BEFORE using any Firebase-related logic
+  // firebase initalization 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  // Inject your AuthController AFTER Firebase is ready
+  // dependency injection 
   Get.put(AuthController());
   Get.put(ThemeController());
 
